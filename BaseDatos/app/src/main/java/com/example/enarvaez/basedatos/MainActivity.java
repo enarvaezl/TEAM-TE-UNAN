@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     EditText mEditTextDatoNombreUsuario,mEditTextDatoApellidoUsuario,
         mEditTextDatoTelefonoUsuario, mEditTextDatoDireccionUsuario;
 
-    
+
    DatabaseReference Clases;
 
     EditText txttema;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-mRootReference= FirebaseDatabase.getInstance().getReference():
+mRootReference= FirebaseDatabase.getInstance().getReference();
 
 //solicitarDatosFirebase();
 
