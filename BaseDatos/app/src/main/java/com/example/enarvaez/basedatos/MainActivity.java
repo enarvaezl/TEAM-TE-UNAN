@@ -39,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
     spinseccion= (Spinner) findViewById(R.id.spinseccion);
     btnregistrar= (Button) findViewById(R.id.btnregistrar);
 
+    ButtonSubirDatosFirebase = findViewById(R.id.btnSubirDatos);
+    mButtonSubirDatosFirebase.setOnClickListener(this);
+    mEditTextDatoNombreUsuario = findViewById(R.id.etNombre);
+    mEditTextDatoApellidoUsuario = findViewById(R.id.etApellido);
+    mEditTextDatoTelefonoUsuario = findViewById(R.id.etTelefono);
+    mEditTextDatoDireccionUsuario = findViewById(R.id.etDireccion);
 
 
 
@@ -47,11 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-    
 
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
