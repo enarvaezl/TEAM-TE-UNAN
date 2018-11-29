@@ -33,6 +33,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:16.0.3' // storage
     implementation 'com.google.firebase:firebase-messaging:17.3.3' //mensajeria*/
 
-implementation 'com.google.firebase:firebase-database:16.0.1'
+    implementation 'com.google.firebase:firebase-database:16.0.1'
+
 }
 apply plugin: 'com.google.gms.google-services'

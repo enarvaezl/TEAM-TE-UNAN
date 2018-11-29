@@ -3,9 +3,7 @@
     <string name="app_seccion" translatable="false">seccion</string>
     <string name="app_asign" translatable="false">Asignatura</string>
     <string name="app_tem" translatable="false">Tema</string>
-    <string name="app_user" translatable="false">Usuario</string>
-    <string name="app_pass" translatable="false">Password</string>
-    <string name="app_dep" translatable="false">Departamento</string>
+
     <string name="app_reg" translatable="false">Registrar</string>
 
     <string-array name="asigna">
