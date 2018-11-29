@@ -13,6 +13,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
+    DatabaseReference mRootReference;
+    Button mButtonSubirDatosFirebase;
+    EditText mEditTextDatoNombreUsuario,
+            mEditTextDatoApellidoUsuario,
+            mEditTextDatoTelefonoUsuario,
+            mEditTextDatoDireccionUsuario;
 
    DatabaseReference Clases;
 
@@ -32,6 +38,20 @@ public class MainActivity extends AppCompatActivity {
     spinarea= (Spinner) findViewById(R.id.spinarea);
     spinseccion= (Spinner) findViewById(R.id.spinseccion);
     btnregistrar= (Button) findViewById(R.id.btnregistrar);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,5 +84,9 @@ public void registrar()
             }
 
 }
+
+
+
+
 
 }
