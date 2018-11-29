@@ -1,36 +1,52 @@
 package com.example.enarvaez.basedatos;
 
 public class Clases {
+    private  String nombre;
+    private  String Apellido;
+    
+    public Clases() {
 
-  public  String clasid;
-   public  String Seccion;
-    public String Area;
-   public  String Tema;
-
-
-
-    public Clases(String Cid, String S, String A, String T) {
-        this.clasid=Cid;
-        this.Seccion=S;
-        this.Area=A;
-        this.Tema=T;
 
     }
-
-    public String getClasid() {
-        return clasid;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getSeccion() {
-        return Seccion;
+    public void setApellido(String apellido) {
+        Apellido = apellido;
     }
 
-    public String getArea() {
-        return Area;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 
-    public String getTema() {
-        return Tema;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
+
+    private int telefono;
+    private  String direccion;
+
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return Apellido;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+
+
+
 
 }

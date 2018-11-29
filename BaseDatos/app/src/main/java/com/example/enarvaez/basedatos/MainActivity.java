@@ -52,7 +52,11 @@ mRootReference= FirebaseDatabase.getInstance().getReference();
 //solicitarDatosFirebase();
 
 
+public void solictarDatosFirebas()
+    {
 
+
+    }
 
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
