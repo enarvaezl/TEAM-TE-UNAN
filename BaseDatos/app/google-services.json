@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "530769042043",
+    "firebase_url": "https://pruebadatos-ece80.firebaseio.com",
+    "project_id": "pruebadatos-ece80",
+    "storage_bucket": "pruebadatos-ece80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530769042043:android:533f5f10fe0e5a3a",
+        "android_client_info": {
+          "package_name": "com.example.enarvaez.basedatos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "530769042043-u1nvho45t7bf2plirlq5ongmrg54tba5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.enarvaez.basedatos",
+            "certificate_hash": "efe8827a1517ac2c021bf1b1b1c6e5a0ba6dccae"
+          }
+        },
+        {
+          "client_id": "530769042043-2t71u9k2amk84g6va1k95t4sb8o10442.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI8yZ47dRFemFA0tsOxO9EGeBD_9-LxWc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530769042043-2t71u9k2amk84g6va1k95t4sb8o10442.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
