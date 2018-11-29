@@ -1,5 +1,7 @@
 package com.example.enarvaez.basedatos;
 
+import android.support.annotation.NonNull;
+import android.support.constraint.solver.widgets.Snapshot;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,11 +11,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DataSnapshot;
+import  com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    DatabaseReference mRootReference;
+    DatabaseReference datos;
     Button mButtonSubirDatosFirebase;
     EditText mEditTextDatoNombreUsuario,mEditTextDatoApellidoUsuario,
         mEditTextDatoTelefonoUsuario, mEditTextDatoDireccionUsuario;
@@ -47,48 +52,32 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-mRootReference= FirebaseDatabase.getInstance().getReference();
+datos= FirebaseDatabase.getInstance().getReference();
 
-//solicitarDatosFirebase();
+//
 
 
-public void solictarDatosFirebas()
+private void solictarDatosFirebase()
+            
+
+
     {
+      datos.child("Usuario").addValueEventListener(new ValueEventListener() {
+          @Override
+          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+          }
+
+          @Override
+          public void onCancelled(@NonNull DatabaseError databaseError) {
+
+          }
+      });
 
     }
 
-        btnregistrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registrar();
-            }
-        });
-    }
-
-public void registrar()
-{
-
-    String sec=spinseccion.getSelectedItem().toString();
-    String area=spinarea.getSelectedItem().toString();
-    String tem=txttema.getText().toString();
 
 
-            if(!TextUtils.isEmpty(tem))
-            {
-               String id=Clases.push().getKey();
-               Clases leccion= new Clases(id,sec,area,tem);
-
-
-                Clases.child("leccion").child(id).setValue(leccion);
-                Toast.makeText( this,"ARCHIVO REGISTRADO",Toast.LENGTH_LONG).show();
-
-            }else {
-                Toast.makeText( this,"debe introducir un tema",Toast.LENGTH_LONG).show();
-
-            }
-
-}
 
 
 

@@ -3,7 +3,7 @@ package com.example.enarvaez.basedatos;
 public class Clases {
     private  String nombre;
     private  String Apellido;
-    
+
     public Clases() {
 
 
