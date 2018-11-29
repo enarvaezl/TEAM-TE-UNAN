@@ -1,6 +1,6 @@
 package com.example.enarvaez.basedatos;
 
-public class clases {
+public class Clases {
 
   public  String clasid;
    public  String Seccion;
@@ -9,7 +9,7 @@ public class clases {
 
 
 
-    public clases(String Cid,String S,String A,String T) {
+    public Clases(String Cid, String S, String A, String T) {
         this.clasid=Cid;
         this.Seccion=S;
         this.Area=A;

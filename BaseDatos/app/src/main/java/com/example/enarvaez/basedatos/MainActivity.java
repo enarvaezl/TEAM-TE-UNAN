@@ -13,24 +13,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
+
    private DatabaseReference Clases;
 
-
-    EditText txtTema;
-    Spinner spinAreas, spinSecciones;
+    EditText txttema;
+    Spinner spinarea, spinseccion;
     Button btnregistrar;
 
 @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {registrar();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Clases =FirebaseDatabase.getInstance().getReference("clases");
+        Clases =FirebaseDatabase.getInstance().getReference("Clases");
 
-        txtTema = (EditText)findViewById(R.id.txttema);
-        spinAreas= (Spinner) findViewById(R.id.spinarea);
-        spinSecciones= (Spinner) findViewById(R.id.spinseccion);
-        btnregistrar= (Button) findViewById(R.id.btnregistrar);
+    txttema = (EditText)findViewById(R.id.txttema);
+    spinarea= (Spinner) findViewById(R.id.spinarea);
+    spinseccion= (Spinner) findViewById(R.id.spinseccion);
+    btnregistrar= (Button) findViewById(R.id.btnregistrar);
 
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,19 +43,19 @@ public class MainActivity extends AppCompatActivity {
 public void registrar()
 {
 
-    String sec=spinSecciones.getSelectedItem().toString();
-    String area=spinAreas.getSelectedItem().toString();
-    String tem=txtTema.getText().toString();
+    String sec=spinseccion.getSelectedItem().toString();
+    String area=spinarea.getSelectedItem().toString();
+    String tem=txttema.getText().toString();
 
 
             if(!TextUtils.isEmpty(tem))
             {
-                String id=Clases.push().getKey();
-                clases l= new clases(id,sec,area,tem);
+               String id=Clases.push().getKey();
+                com.example.enarvaez.basedatos.Clases l= new Clases(id,sec,area,tem);
 
 
                 Clases.child("Lecciones").child(id).setValue(l);
-                Toast.makeText( this,"Clase",Toast.LENGTH_LONG).show();
+                Toast.makeText( this,"Clases",Toast.LENGTH_LONG).show();
 
             }else {
                 Toast.makeText( this,"debe introducir un tema",Toast.LENGTH_LONG).show();
