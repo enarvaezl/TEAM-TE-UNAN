@@ -8,6 +8,17 @@
     <string name="app_dep" translatable="false">Departamento</string>
     <string name="app_reg" translatable="false">Registrar</string>
 
+    <string-array name="asigna">
+        <item>Seleccione</item>
+        <item>Ruby</item>
+        <item>Java</item>
+        <item>.NET</item>
+        <item>Python</item>
+        <item>PHP</item>
+        <item>JavaScript</item>
+        <item>GO</item>
+    </string-array>
 
+  
 
 </resources>
