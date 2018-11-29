@@ -19,6 +19,13 @@
         <item>GO</item>
     </string-array>
 
-  
+    <string-array name="sec">
+        <item>Seleccione</item>
+        <item>a</item>
+        <item>b</item>
+        <item>c</item>
+
+    </string-array>
+
 
 </resources>
