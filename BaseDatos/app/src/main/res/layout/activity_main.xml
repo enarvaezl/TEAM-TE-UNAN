@@ -61,15 +61,10 @@
         android:id="@+id/spinarea"
         android:layout_width="161dp"
         android:layout_height="33dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="8dp"
         android:entries="@array/asigna"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29" />
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="398dp"
+        tools:layout_editor_absoluteY="103dp" />
 
     <EditText
         android:id="@+id/txttema"
@@ -85,7 +80,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintVertical_bias="0.569" />
 
     <Button
         android:id="@+id/btnregistrar"
@@ -102,5 +97,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785" />
+        app:layout_constraintVertical_bias="0.858" />
 </android.support.constraint.ConstraintLayout>

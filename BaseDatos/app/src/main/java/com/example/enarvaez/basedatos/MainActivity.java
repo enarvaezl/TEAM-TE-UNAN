@@ -13,7 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
-    public DatabaseReference data;
+   private DatabaseReference Clases;
 
 
     EditText txtTema;
@@ -25,12 +25,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        data =FirebaseDatabase.getInstance().getReference("data");
+        Clases =FirebaseDatabase.getInstance().getReference("clases");
 
-        txtTema = findViewById(R.id.txttema);
-        spinAreas= findViewById(R.id.spinarea);
-        spinSecciones= findViewById(R.id.spinseccion);
-        btnregistrar= findViewById(R.id.btnregistrar);
+        txtTema = (EditText)findViewById(R.id.txttema);
+        spinAreas= (Spinner) findViewById(R.id.spinarea);
+        spinSecciones= (Spinner) findViewById(R.id.spinseccion);
+        btnregistrar= (Button) findViewById(R.id.btnregistrar);
 
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,11 +50,11 @@ public void registrar()
 
             if(!TextUtils.isEmpty(tem))
             {
-                String id=data.push().getKey();
+                String id=Clases.push().getKey();
                 clases l= new clases(id,sec,area,tem);
 
 
-                data.child("Lecciones").child(id).setValue(l);
+                Clases.child("Lecciones").child(id).setValue(l);
                 Toast.makeText( this,"Clase",Toast.LENGTH_LONG).show();
 
             }else {
