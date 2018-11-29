@@ -14,15 +14,16 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-   private DatabaseReference Clases;
+   DatabaseReference Clases;
 
     EditText txttema;
     Spinner spinarea, spinseccion;
     Button btnregistrar;
 
 @Override
-    protected void onCreate(Bundle savedInstanceState) {registrar();
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         Clases =FirebaseDatabase.getInstance().getReference("Clases");
@@ -51,11 +52,11 @@ public void registrar()
             if(!TextUtils.isEmpty(tem))
             {
                String id=Clases.push().getKey();
-                com.example.enarvaez.basedatos.Clases l= new Clases(id,sec,area,tem);
+               Clases leccion= new Clases(id,sec,area,tem);
 
 
-                Clases.child("Lecciones").child(id).setValue(l);
-                Toast.makeText( this,"Clases",Toast.LENGTH_LONG).show();
+                Clases.child("leccion").child(id).setValue(leccion);
+                Toast.makeText( this,"ARCHIVO REGISTRADO",Toast.LENGTH_LONG).show();
 
             }else {
                 Toast.makeText( this,"debe introducir un tema",Toast.LENGTH_LONG).show();
