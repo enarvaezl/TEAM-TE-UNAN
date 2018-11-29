@@ -15,11 +15,10 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
     DatabaseReference mRootReference;
     Button mButtonSubirDatosFirebase;
-    EditText mEditTextDatoNombreUsuario,
-            mEditTextDatoApellidoUsuario,
-            mEditTextDatoTelefonoUsuario,
-            mEditTextDatoDireccionUsuario;
+    EditText mEditTextDatoNombreUsuario,mEditTextDatoApellidoUsuario,
+        mEditTextDatoTelefonoUsuario, mEditTextDatoDireccionUsuario;
 
+    
    DatabaseReference Clases;
 
     EditText txttema;
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     spinseccion= (Spinner) findViewById(R.id.spinseccion);
     btnregistrar= (Button) findViewById(R.id.btnregistrar);
 
-    ButtonSubirDatosFirebase = findViewById(R.id.btnSubirDatos);
+    mButtonSubirDatosFirebase = findViewById(R.id.btnSubirDatos);
     mButtonSubirDatosFirebase.setOnClickListener(this);
     mEditTextDatoNombreUsuario = findViewById(R.id.etNombre);
     mEditTextDatoApellidoUsuario = findViewById(R.id.etApellido);
@@ -48,8 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+mRootReference= FirebaseDatabase.getInstance().getReference():
 
-
+//solicitarDatosFirebase();
 
 
 
