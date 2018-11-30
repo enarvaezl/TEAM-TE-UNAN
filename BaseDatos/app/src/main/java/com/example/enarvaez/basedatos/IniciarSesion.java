@@ -158,11 +158,11 @@ public class IniciarSesion extends AppCompatActivity implements View.OnClickList
 
         switch (v.getId())
         {
-            case R.id.btnRegistro:
+            case R.id.ImgButtonIniciar:
 
                 registrar_usuario();
                 break;
-            case R.id.btnlogin:
+            case R.id.ImgButtonRegistrar:
                 loguear_usuario();
                 break;
 
