@@ -1,6 +1,7 @@
 package com.example.enarvaez.basedatos;
 
 import android.app.ProgressDialog;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class activity_registro extends AppCompatActivity {
@@ -62,7 +66,22 @@ public class activity_registro extends AppCompatActivity {
 
 
 
-        firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this)
+        firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if(task.isSuccessful()){
+
+                    Toast.makeText(activity_registro.this, "se ha registrado el Email",Toast.LENGTH_LONG).show();
+                }else
+                {
+
+                    
+                }
+
+
+            }
+        });
     }
 
 
