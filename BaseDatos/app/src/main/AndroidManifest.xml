@@ -23,6 +23,10 @@
         <activity android:name=".RegistroUsuario"></activity>
         <activity android:name=".ModulosGSM"></activity>
         <activity android:name=".ServiciosdeConsulta"></activity>
+        <activity android:name=".DirectorioCentroMedico"></activity>
+        <activity android:name=".Alertas"></activity>
+        <activity android:name=".portalInformativo"></activity>
+
         <service android:name=".MiFirebaseInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />

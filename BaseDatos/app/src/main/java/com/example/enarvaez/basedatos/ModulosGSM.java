@@ -43,6 +43,26 @@ public class ModulosGSM extends AppCompatActivity {
             }
         });
 
+        btn_Alertas= (ImageButton)findViewById(R.id.imageBAlerta);
+
+        btn_Alertas.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent entrar= new Intent(ModulosGSM.this,Alertas.class);
+                startActivity(entrar);
+            }
+        });
+
+        btn_Informativo= (ImageButton)findViewById(R.id.imageBInformativo);
+
+        btn_Informativo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent entrar= new Intent(ModulosGSM.this,portalInformativo.class);
+                startActivity(entrar);
+            }
+        });
+
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 }
