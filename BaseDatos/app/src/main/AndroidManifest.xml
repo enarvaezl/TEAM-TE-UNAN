@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".IniciarSesion"></activity>
         <activity android:name=".RegistroUsuario"></activity>
+        <activity android:name=".ModulosGSM"></activity>
+
     </application>
 
 </manifest>
