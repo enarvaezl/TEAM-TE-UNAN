@@ -57,14 +57,14 @@ import java.util.Map;
         //Metodo que solicta los datos
         private void solictarDatosFirebase()
         {
-            datos.child("Usuario").addValueEventListener(new ValueEventListener() {
+            datos.child("Personas").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange( DataSnapshot dataSnapshot) {
 
                     for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
 
-                        datos.child("Usuario").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
+                        datos.child("Personas").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 Clases user = snapshot.getValue(com.example.enarvaez.basedatos.Clases.class);
@@ -123,7 +123,7 @@ import java.util.Map;
             datosUsuarios.put("departamento",departamento);
             datosUsuarios.put("contraseña",contra);
             datosUsuarios.put("Repetir contraseña",rcontra);
-            datos.child("Usuario").push().setValue(datosUsuarios);
+            datos.child("Personas").push().setValue(datosUsuarios);
 
         }
 
@@ -147,6 +147,7 @@ import java.util.Map;
 
                     Intent irlogin= new Intent(RegistroUsuario.this,IniciarSesion.class);
                     startActivity(irlogin);
+                    break;
 
 
             }
