@@ -15,7 +15,7 @@ TextView txtuser;
 
         txtuser=(TextView)findViewById(R.id.txtusr);
         String user=getIntent().getStringExtra("name");
-        txtuser.setText("!!Bienvenido  "+  user +"!!");                                                                                                                                                                                                                                                                                                                  
+        txtuser.setText("!!Bienvenido  "+  user +"!!");
 
 
 
