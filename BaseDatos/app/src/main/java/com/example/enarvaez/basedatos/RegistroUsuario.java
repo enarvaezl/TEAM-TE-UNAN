@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -144,14 +145,30 @@ import java.util.Map;
                     String Rcontraseña=dEditTextDatorcontraUsuario.getText().toString();
 
                     CargarDatos(nombre,correo,barrio,municipio,departamento,contraseña,Rcontraseña);
+                    Toast.makeText(RegistroUsuario.this," Datos Guardados Correctamente",Toast.LENGTH_LONG).show();
+                    limpiar();
 
-                    Intent irlogin= new Intent(RegistroUsuario.this,IniciarSesion.class);
-                    startActivity(irlogin);
+
                     break;
 
 
             }
 
         }
+        public void limpiar()
+        {
+            dEditTextDatoNombreUsuario.setText(" ");
+            dEditTextDatoCorreoUsuario.setText(" ");
+            dEditTextDatobarrioUsuario.setText(" ");
+            dEditTextDatoMunicipioUsuario.setText(" ");
+            dEditTextDatoDepaUsuario.setText(" ");
+            dEditTextDatorcontraUsuario.setText(" ");
+
+            Intent irlogin= new Intent(RegistroUsuario.this,IniciarSesion.class);
+            startActivity(irlogin);
+
+        }
+
+
     }
 
