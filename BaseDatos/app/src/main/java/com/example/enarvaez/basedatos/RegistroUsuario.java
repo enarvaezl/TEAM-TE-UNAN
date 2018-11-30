@@ -138,10 +138,10 @@ import java.util.Map;
                     String barrio= dEditTextDatobarrioUsuario.getText().toString();
                     String municipio= dEditTextDatoMunicipioUsuario .getText().toString();
                     String departamento= dEditTextDatoDepaUsuario.getText().toString();
-                    String contrasena= dEditTextDatocontraUsuario.getText().toString();
+                    String con= dEditTextDatocontraUsuario.getText().toString();
                     String rcontrasena=dEditTextDatorcontraUsuario.getText().toString();
 
-                    CargarDatos(nombre,correo,barrio,municipio,departamento,contrasena,rcontrasena);
+                    CargarDatos(nombre,correo,barrio,municipio,departamento,con,rcontrasena);
                     limpiar();
                    Toast.makeText(RegistroUsuario.this," Datos Guardados Correctamente",Toast.LENGTH_LONG).show();
                    Intent irlogin= new Intent(RegistroUsuario.this,IniciarSesion.class);
