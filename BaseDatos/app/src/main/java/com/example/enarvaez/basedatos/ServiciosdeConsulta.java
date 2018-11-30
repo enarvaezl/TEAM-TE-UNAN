@@ -24,6 +24,7 @@ public class ServiciosdeConsulta extends AppCompatActivity {
     private ImageView imageBDato;
     private EditText editTextTipo;
 
+
     private ImageButton imageBBuscar;
 
 
