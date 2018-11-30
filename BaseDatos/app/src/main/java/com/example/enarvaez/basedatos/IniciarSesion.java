@@ -78,6 +78,8 @@ public class IniciarSesion extends AppCompatActivity implements View.OnClickList
                 if (task.isSuccessful()) {
 
                     Toast.makeText(IniciarSesion.this, "se ha registrado el Email :"+ TextEmail.getText(), Toast.LENGTH_LONG).show();
+                    Intent welcome=new Intent(IniciarSesion.this, ModulosGSM.class);
+                    startActivity(welcome);
                 } else {
 
                     //validamos si el usuario ya exste en la base de datos
@@ -129,7 +131,6 @@ public class IniciarSesion extends AppCompatActivity implements View.OnClickList
                             Toast.makeText(IniciarSesion.this, "Bienvenido :"+ TextEmail.getText(), Toast.LENGTH_LONG).show();
 
                             Intent welcome=new Intent(IniciarSesion.this, ModulosGSM.class);
-                            //welcome.putExtra(BienvenidoActivity.registro_user,email);
                             startActivity(welcome);
 
                         } else {
@@ -139,8 +140,7 @@ public class IniciarSesion extends AppCompatActivity implements View.OnClickList
                             {
 
                                 Toast.makeText(IniciarSesion.this,"Usuario ya existe",Toast.LENGTH_LONG).show();
-                                Intent welcome=new Intent(getApplication(), ModulosGSM.class);
-                                //welcome.putExtra(BienvenidoActivity.registro_user,email);
+                                Intent welcome=new Intent(getApplication(), RegistroUsuario.class);
                                 startActivity(welcome);
                             }
                             Toast.makeText(IniciarSesion.this, "No se ha podido ingresar el usuario", Toast.LENGTH_LONG).show();
@@ -167,7 +167,8 @@ public class IniciarSesion extends AppCompatActivity implements View.OnClickList
                 registrar_usuario();
                 break;
             case R.id.ImgButtonRegistrar:
-                loguear_usuario();
+                Intent welcome=new Intent(IniciarSesion.this, RegistroUsuario.class);
+                startActivity(welcome);
                 break;
 
         }

@@ -1,14 +1,17 @@
 package com.example.enarvaez.basedatos;
 
-public class Clases {
-    private  String nombre;
-    private  String correo;
-    private  String barrio;
-    private  String email;
-    private  String departamento;
-    private  String Municipio;
-    private String Contrasena;
-    private String rcontrasena;
+class Clases
+{
+
+
+    public  String nombre;
+    public  String correo;
+    public  String barrio;
+    public  String email;
+    public  String departamento;
+    public  String Municipio;
+    public String Contrasena;
+    public String rcontrasena;
 
     public Clases() {
 
