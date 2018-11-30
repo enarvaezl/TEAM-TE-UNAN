@@ -9,7 +9,7 @@
     <string name="app_correo" translatable="false">correo electronico</string>
     <string name="app_pass" translatable="false">contraseña</string>
     <string name="app_aut" translatable="false">Ingresar</string>
-
+    <string name="app_log" translatable="false">Login</string>
 
 
     <string-array name="sec">

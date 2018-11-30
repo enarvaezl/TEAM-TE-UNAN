@@ -20,7 +20,7 @@ public  class activity_registro extends AppCompatActivity implements View.OnClic
 
     private EditText TextEmail;
     private EditText TextPassword;
-    private Button btnRegistrar;
+    private Button btnRegistrar, btnlog;
     private ProgressDialog ProgressDialog;
 
 
@@ -36,6 +36,8 @@ public  class activity_registro extends AppCompatActivity implements View.OnClic
         TextEmail = (EditText) findViewById(R.id.txtcorreo);
         TextPassword = (EditText) findViewById(R.id.txtcorreo);
         btnRegistrar = (Button) findViewById(R.id.btnRegistro);
+        btnlog = (Button) findViewById(R.id.btnlogin);
+
         ProgressDialog = new ProgressDialog(this);
 
         btnRegistrar.setOnClickListener(this);
@@ -92,6 +94,17 @@ public  class activity_registro extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-       registrar_usuario();
+
+        switch (v.getId())
+        {
+            case R.id.btnRegistro:
+
+                registrar_usuario();
+                break;
+            case R.id.btnlogin:
+                break;
+
+        }
+
     }
 }
