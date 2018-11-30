@@ -22,4 +22,35 @@
     </string-array>
 
 
+    <string name="app_nameRegistro" translatable="false">Campañas Nacionales MINSA</string>
+    <string name="app_nameIniciarSesion" translatable="false">INICIAR SESION</string>
+    <string name="app_nameInvitado" translatable="false">Invitado</string>
+
+    <string name="app_nameIniciarSesion2" translatable="false">Iniciar Sesion</string>
+    <string name="app_nameUsuario" translatable="false">Correo Electronico</string>
+    <string name="app_namecontraseñas" translatable="false">Contraseña</string>
+    <string name="app_nameRcontraseñas" translatable="false">Recordar Contraseña</string>
+
+    <string name="app_nameRegUsuario" translatable="false">Registro Usuario</string>
+    <string name="app_nameNombre" translatable="false">Nombre Completo</string>
+    <string name="app_nameBarrio" translatable="false">Barrio/Distrito</string>
+    <string name="app_nameMunicipio" translatable="false">Municipio</string>
+    <string name="app_nameDepartamento" translatable="false">Departamento</string>
+    <string name="app_namecCorreo" translatable="false">Correo</string>
+    <string name="app_nameContraseña" translatable="false">Contraseña</string>
+    <string name="app_nameRContraseña" translatable="false">Repetir \ Contraseña</string>
+
+    //Directorio
+    <string name="app_nameDirectorio" translatable="false">Directorio Centro Medico</string>
+
+    //Consulta
+    <string name="app_nameConsulta" translatable="false">Consulta</string>
+
+    <string-array name="app_nameConsulta">
+        <item>Seleccione</item>
+        <item>Especialidad</item>
+        <item>Examen</item>
+    </string-array>
+
+
 </resources>
