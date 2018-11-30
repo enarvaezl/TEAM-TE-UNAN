@@ -63,11 +63,9 @@ import java.util.Map;
                 @Override
                 public void onDataChange( DataSnapshot dataSnapshot) {
 
-                    for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
-
+                    for (final DataSnapshot snapshot : dataSnapshot.getChildren())
                         datos.child("Usuarios").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
-                           @Override
+                            @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 Clases user = snapshot.getValue(Clases.class);
                                 String nombre = user.getNombre();
@@ -75,7 +73,7 @@ import java.util.Map;
                                 String barrio = user.getBarrio();
                                 String municipio = user.getMunicipio();
                                 String departamento = user.getDepartamento();
-                                String contrasena = user.getContrasena();
+                                String contrasena = user.getContrasenas();
                                 String Rcontrasena = user.getRcontrasena();
 
 
@@ -86,7 +84,7 @@ import java.util.Map;
                                 Log.e("barrio :", " " + barrio);
                                 Log.e("municipio :", " " + municipio);
                                 Log.e("departamento :", " " + departamento);
-                                Log.e("contraseña :", " " + contrasena);
+                                Log.e("contrasena :", " " + contrasena);
                                 Log.e("Rcontraseña :", " " + Rcontrasena);
 
                                 Log.e("Datos: ", "" + snapshot.getValue());
@@ -96,12 +94,9 @@ import java.util.Map;
 
                             @Override
                             public void onCancelled(DatabaseError databaseError) {
-                            Toast.makeText(RegistroUsuario.this,databaseError.getMessage(),Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegistroUsuario.this, databaseError.getMessage(), Toast.LENGTH_LONG).show();
                             }
                         });
-
-
-                    }
                 }
 
                 @Override

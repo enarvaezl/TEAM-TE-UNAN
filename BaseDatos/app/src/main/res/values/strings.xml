@@ -28,7 +28,7 @@
 
     <string name="app_nameIniciarSesion2" translatable="false">Iniciar Sesion</string>
     <string name="app_nameUsuario" translatable="false">Correo Electronico</string>
-    <string name="app_namecontraseñas" translatable="false">Contraseña</string>
+    <string name="app_namecontrasseñas" translatable="false">Contraseñas</string>
     <string name="app_nameRcontraseñas" translatable="false">Recordar Contraseña</string>
 
     <string name="app_nameRegUsuario" translatable="false">Registro Usuario</string>

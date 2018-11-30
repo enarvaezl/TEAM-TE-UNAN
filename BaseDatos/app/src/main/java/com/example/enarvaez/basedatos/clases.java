@@ -8,7 +8,17 @@ package com.example.enarvaez.basedatos;
     public  String barrio;
     public  String departamento;
     public  String Municipio;
-    public String Contrasena;
+
+    public String getContraseña() {
+        return Contraseña;
+    }
+
+    public String getContraseñas() {
+        return Contraseñas;
+    }
+
+    public String Contraseña;
+    public String Contraseñas;
     public String rcontrasena;
 
     public Clases() {
@@ -39,8 +49,8 @@ package com.example.enarvaez.basedatos;
         return Municipio;
     }
 
-    public String getContrasena() {
-        return Contrasena;
+    public String getContrasenas() {
+        return Contraseñas;
     }
 
     public String getRcontrasena() {
