@@ -36,13 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
                 setContentView(R.layout.activity_main);
 
-
-
-            txttema = (EditText)findViewById(R.id.txttema);
-            spinarea= (Spinner) findViewById(R.id.spinarea);
-            spinseccion= (Spinner) findViewById(R.id.spinseccion);
-            btnregistrar= (Button) findViewById(R.id.btnregistrar);
-
             mButtonSubirDatosFirebase = findViewById(R.id.btnSubirDatos);
             mButtonSubirDatosFirebase.setOnClickListener(this);
             mEditTextDatoNombreUsuario = findViewById(R.id.etNombre);
@@ -51,9 +44,6 @@ public class MainActivity extends AppCompatActivity {
             mEditTextDatoDireccionUsuario = findViewById(R.id.etDireccion);
 
             datos= FirebaseDatabase.getInstance().getReference();
-
-
-
         //
 
 
@@ -67,17 +57,23 @@ public class MainActivity extends AppCompatActivity {
                   for (final DataSnapshot snapshot: dataSnapshot.getChildren()) {
 
 
-                      datos.child("Usaurio").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
+                      datos.child("Usuario").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
                           @Override
-                          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                              
+                          public void onDataChange(DataSnapshot dataSnapshot) {
+                              Clases user = snapshot.getValue(com.example.enarvaez.basedatos.Clases.class);
+                              String nombre= user.getNombre();
+                              String apellido= user.getApellido();
+                              int telefono=user.getTelefono();
+                              String direccion=user.getDireccion();
+
+                              long.e("nombre de Usuario");
                           }
 
                           @Override
                           public void onCancelled(@NonNull DatabaseError databaseError) {
 
                           }
-                      })
+                      });
 
 
                   }

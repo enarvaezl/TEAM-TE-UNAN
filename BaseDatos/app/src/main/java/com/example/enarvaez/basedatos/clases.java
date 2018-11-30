@@ -3,6 +3,9 @@ package com.example.enarvaez.basedatos;
 public class Clases {
     private  String nombre;
     private  String Apellido;
+    private int telefono;
+    private  String direccion;
+
 
     public Clases() {
 
@@ -24,8 +27,6 @@ public class Clases {
         this.direccion = direccion;
     }
 
-    private int telefono;
-    private  String direccion;
 
 
 
