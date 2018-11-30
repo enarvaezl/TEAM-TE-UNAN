@@ -92,6 +92,58 @@ public  class activity_registro extends AppCompatActivity implements View.OnClic
         });
     }
 
+    private void loguear_usuario()
+    {
+        //obtenemos el email de la caja de texto y la contraseña de las cajas de texto
+
+        String email = TextEmail.getText().toString().trim();
+        String pass = TextPassword.getText().toString().trim();
+
+        //Verifico si las cajas de texto estan vacias
+        if (TextUtils.isEmpty(email)) {
+
+            Toast.makeText(this, "se debe ingresar un email valido", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (TextUtils.isEmpty(pass)) {
+
+            Toast.makeText(this, "Se debe ingresar una contraseña", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
+        ProgressDialog.setMessage("Registrando Usuario");
+        ProgressDialog.show();
+
+        //creando un nuevo usuario
+        firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(Task<AuthResult> task) {
+                //Verificacion del proceso de creacion de usuario
+                if (task.isSuccessful()) {
+
+                    Toast.makeText(activity_registro.this, "se ha registrado el Email :"+ TextEmail.getText(), Toast.LENGTH_LONG).show();
+                } else {
+
+                    //validamos si el usuario ya exste en la base de datos
+                    if(task.getException() instanceof FirebaseAuthException)
+                    {
+
+                        Toast.makeText(activity_registro.this,"Usuario ya existe",Toast.LENGTH_LONG).show();
+                    }
+                    Toast.makeText(activity_registro.this, "No se ha podido ingresar el usuario", Toast.LENGTH_LONG).show();
+
+                }
+
+                ProgressDialog.dismiss();
+            }
+        });
+    }
+
+    }
+
+
+
     @Override
     public void onClick(View v) {
 
@@ -102,6 +154,7 @@ public  class activity_registro extends AppCompatActivity implements View.OnClic
                 registrar_usuario();
                 break;
             case R.id.btnlogin:
+                loguear_usuario();
                 break;
 
         }
