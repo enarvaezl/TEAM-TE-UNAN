@@ -6,25 +6,22 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class activity_registro extends AppCompatActivity {
 
-
-
-    private EditText TextEmail;
+        private EditText TextEmail;
     private EditText TextPassword;
     private Button btnRegistrar;
-
-
     private ProgressDialog ProgressDialog;
+
 
     private FirebaseAuth firebaseAuth;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
@@ -58,5 +55,15 @@ public class activity_registro extends AppCompatActivity {
             return;
         }
 
+
+
+        ProgressDialog.setMessage("Registrando Usuario");
+        ProgressDialog.show();
+
+
+
+        firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this)
     }
+
+
 }
