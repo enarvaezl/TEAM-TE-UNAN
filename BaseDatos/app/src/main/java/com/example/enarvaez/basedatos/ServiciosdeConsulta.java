@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -26,35 +27,12 @@ public class ServiciosdeConsulta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serviciosde_consulta);
 
-
+        RegistroUsuario reg=new RegistroUsuario();
         Hospital=findViewById(R.id.spinnerhospital);
-        datos=FirebaseDatabase.getInstance().getReference(getString(R.string.project_id));
+        reg.solictarDatosFirebase();
+        Hospital.getSelectedItem().toString();
 
 
-        datos.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayAdapter<String> adaptador;
-                ArrayList<String> lista = new ArrayList<String>();
-
-                for (final DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
-                    Clases clase= dataSnapshot1.getValue(Clases.class);
-                    String n=clase.getNombre();
-                    lista.add(n);
-
-
-                }
-
-
-                adaptador=new ArrayAdapter<String>(activitymain2.this.);
-                lista.setAdpater(adaptador);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        })
 
     }
 

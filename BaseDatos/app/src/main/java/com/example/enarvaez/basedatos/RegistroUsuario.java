@@ -2,6 +2,7 @@ package com.example.enarvaez.basedatos;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -56,7 +57,7 @@ import java.util.Map;
             solictarDatosFirebase();
         }
         //Metodo que solicta los datos
-        private void solictarDatosFirebase()
+        public void solictarDatosFirebase()
         {
             datos.child("Usuarios").addValueEventListener(new ValueEventListener() {
                 @Override
@@ -65,28 +66,28 @@ import java.util.Map;
                     for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
 
-                        datos.child("Personas").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
-                            @Override
+                        datos.child("Usuarios").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
+                           @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                Clases user = snapshot.getValue(com.example.enarvaez.basedatos.Clases.class);
+                                Clases user = snapshot.getValue(Clases.class);
                                 String nombre = user.getNombre();
                                 String correo = user.getCorreo();
-                                String barrio=user.getBarrio();
-                                String municipio=user.getMunicipio();
-                                String departamento=user.getDepartamento();
-                                String contrasena=user.getContrasena();
-                                String Rcontrasena=user.getRcontrasena();
+                                String barrio = user.getBarrio();
+                                String municipio = user.getMunicipio();
+                                String departamento = user.getDepartamento();
+                                String contrasena = user.getContrasena();
+                                String Rcontrasena = user.getRcontrasena();
 
 
                                 //muestra datos por consola
 
-                                Log.e("nombre de Usuario:" ," "+ nombre);
-                                Log.e("correo :"  ," "+ correo);
-                                Log.e("barrio :" ," "+ barrio);
-                                Log.e("municipio :"  ," "+ municipio);
-                                Log.e("departamento :"  ," "+ departamento);
-                                Log.e("contraseña :"  ," "+ contrasena);
-                                Log.e("Rcontraseña :"  ," "+ Rcontrasena);
+                                Log.e("nombre de Usuario:", " " + nombre);
+                                Log.e("correo :", " " + correo);
+                                Log.e("barrio :", " " + barrio);
+                                Log.e("municipio :", " " + municipio);
+                                Log.e("departamento :", " " + departamento);
+                                Log.e("contraseña :", " " + contrasena);
+                                Log.e("Rcontraseña :", " " + Rcontrasena);
 
                                 Log.e("Datos: ", "" + snapshot.getValue());
 
@@ -95,7 +96,7 @@ import java.util.Map;
 
                             @Override
                             public void onCancelled(DatabaseError databaseError) {
-
+                            Toast.makeText(RegistroUsuario.this,databaseError.getMessage(),Toast.LENGTH_LONG).show();
                             }
                         });
 
@@ -122,8 +123,8 @@ import java.util.Map;
             datosUsuarios.put("barrio",barrio);
             datosUsuarios.put("municipio",municipio);
             datosUsuarios.put("departamento",departamento);
-            datosUsuarios.put("contraseña",contra);
-            datosUsuarios.put("Repetir contraseña",rcontra);
+            datosUsuarios.put("contrasena",contra);
+            datosUsuarios.put("Repetir_contrasena",rcontra);
             datos.child("Usuarios").push().setValue(datosUsuarios);
 
         }
@@ -141,15 +142,15 @@ import java.util.Map;
                     String barrio= dEditTextDatobarrioUsuario.getText().toString();
                     String municipio= dEditTextDatoMunicipioUsuario .getText().toString();
                     String departamento= dEditTextDatoDepaUsuario.getText().toString();
-                    String contraseña= dEditTextDatocontraUsuario.getText().toString();
-                    String Rcontraseña=dEditTextDatorcontraUsuario.getText().toString();
+                    String contrasena= dEditTextDatocontraUsuario.getText().toString();
+                    String rcontrasena=dEditTextDatorcontraUsuario.getText().toString();
 
-                    CargarDatos(nombre,correo,barrio,municipio,departamento,contraseña,Rcontraseña);
+                    CargarDatos(nombre,correo,barrio,municipio,departamento,contrasena,rcontrasena);
 
-                    Toast.makeText(RegistroUsuario.this," Datos Guardados Correctamente",Toast.LENGTH_LONG).show();
+                   Toast.makeText(RegistroUsuario.this," Datos Guardados Correctamente",Toast.LENGTH_LONG).show();
 
 
-                    break;
+
 
 
             }
