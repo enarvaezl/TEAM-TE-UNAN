@@ -3,20 +3,14 @@
     <string name="app_nombre" translatable="false">nombre</string>
     <string name="app_apellido" translatable="false">apellido</string>
     <string name="app_direccion" translatable="false">direccion</string>
-    <string name="app_telefono" translatable="false" >telefono</string>
+    <string name="app_telefono" translatable="false">telefono</string>
     <string name="app_reg" translatable="false">Registrar</string>
     <string name="app_datos" translatable="false">Subir</string>
+    <string name="app_correo" translatable="false">correo electronico</string>
+    <string name="app_pass" translatable="false">contraseña</string>
+    <string name="app_aut" translatable="false">Ingresar</string>
 
-    <string-array name="asigna">
-        <item>Seleccione</item>
-        <item>Ruby</item>
-        <item>Java</item>
-        <item>.NET</item>
-        <item>Python</item>
-        <item>PHP</item>
-        <item>JavaScript</item>
-        <item>GO</item>
-    </string-array>
+
 
     <string-array name="sec">
         <item>Seleccione</item>
