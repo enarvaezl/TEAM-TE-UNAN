@@ -115,8 +115,7 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
                     int telefono=Integer.parseInt(dEditTextDatoTelefonoUsuario.getText().toString());
                     String direccion=dEditTextDatoDireccionUsuario.getText().toString();
                     CargarDatos(nombre,apellido,telefono,direccion);
-                    Intent otra=new Intent (MainActivity.this,activity_registro.class);
-                    startActivity(otra);
+
 
             }
 

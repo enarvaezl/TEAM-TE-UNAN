@@ -10,9 +10,11 @@
       <w>btnlogin</w>
       <w>btnregistrar</w>
       <w>cargar</w>
+      <w>centro</w>
       <w>clase</w>
       <w>clases</w>
       <w>clasid</w>
+      <w>completo</w>
       <w>consulta</w>
       <w>contraseña</w>
       <w>correo</w>
@@ -22,28 +24,37 @@
       <w>debe</w>
       <w>departamento</w>
       <w>direccion</w>
+      <w>directorio</w>
       <w>electronico</w>
       <w>enarvaez</w>
+      <w>entrar</w>
       <w>enviar</w>
       <w>existe</w>
       <w>firebase</w>
       <w>ingresar</w>
+      <w>iniciar</w>
       <w>introducir</w>
       <w>leccion</w>
       <w>lecciones</w>
       <w>lenguajes</w>
       <w>loguear</w>
+      <w>municipio</w>
+      <w>namecontraseñas</w>
       <w>nombre</w>
       <w>obtenemos</w>
       <w>otra</w>
       <w>podido</w>
+      <w>rcontraseñas</w>
       <w>realizando</w>
+      <w>recordar</w>
       <w>registrado</w>
       <w>registrando</w>
       <w>registro</w>
+      <w>repetir</w>
       <w>seccion</w>
       <w>secciones</w>
       <w>seleccione</w>
+      <w>sesion</w>
       <w>solictar</w>
       <w>spinarea</w>
       <w>spinseccion</w>

@@ -38,7 +38,7 @@
     <string name="app_nameDepartamento" translatable="false">Departamento</string>
     <string name="app_namecCorreo" translatable="false">Correo</string>
     <string name="app_nameContraseña" translatable="false">Contraseña</string>
-    <string name="app_nameRContraseña" translatable="false">Repetir \ Contraseña</string>
+    <string name="app_nameRContraseña" translatable="false">Repetir_Contraseña</string>
 
     //Directorio
     <string name="app_nameDirectorio" translatable="false">Directorio Centro Medico</string>
