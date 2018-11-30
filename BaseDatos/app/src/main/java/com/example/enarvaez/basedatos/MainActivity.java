@@ -50,25 +50,25 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
                         for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
 
-                            datos.child("Usuario").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    Clases user = snapshot.getValue(com.example.enarvaez.basedatos.Clases.class);
-                                    String nombre = user.getNombre();
-                                    String apellido = user.getApellido();
-                                    int telefono = user.getTelefono();
-                                    String direccion = user.getDireccion();
+                                        datos.child("Usuario").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                                Clases user = snapshot.getValue(com.example.enarvaez.basedatos.Clases.class);
+                                                String nombre = user.getNombre();
+                                                String apellido = user.getApellido();
+                                                int telefono = user.getTelefono();
+                                                String direccion = user.getDireccion();
 
-                                    //muestra datos por consola
+                                                //muestra datos por consola
 
-                                    Log.e("nombre de Usuario:" ," "+ nombre);
-                                    Log.e("Apellido :"  ," "+ apellido);
-                                    Log.e("telefono :" ," "+ telefono);
-                                    Log.e("direccion :"  ," "+ direccion);
-                                    Log.e("Datos: ", "" + snapshot.getValue());
+                                                Log.e("nombre de Usuario:" ," "+ nombre);
+                                                Log.e("Apellido :"  ," "+ apellido);
+                                                Log.e("telefono :" ," "+ telefono);
+                                                Log.e("direccion :"  ," "+ direccion);
+                                                Log.e("Datos: ", "" + snapshot.getValue());
 
 
-                                }
+                                            }
 
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {

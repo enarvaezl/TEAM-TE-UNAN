@@ -115,14 +115,15 @@ public  class activity_registro extends AppCompatActivity implements View.OnClic
         ProgressDialog.setMessage("Registrando Usuario");
         ProgressDialog.show();
 
-        //creando un nuevo usuario
-        firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        //Login de  usuario
+        firebaseAuth.signInWithEmailAndPassword(email, pass)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(Task<AuthResult> task) {
                 //Verificacion del proceso de creacion de usuario
                 if (task.isSuccessful()) {
 
-                    Toast.makeText(activity_registro.this, "se ha registrado el Email :"+ TextEmail.getText(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity_registro.this, "Bienvenido :"+ TextEmail.getText(), Toast.LENGTH_LONG).show();
                 } else {
 
                     //validamos si el usuario ya exste en la base de datos
@@ -140,7 +141,7 @@ public  class activity_registro extends AppCompatActivity implements View.OnClic
         });
     }
 
-    }
+
 
 
 
