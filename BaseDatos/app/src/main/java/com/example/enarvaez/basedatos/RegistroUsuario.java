@@ -1,5 +1,6 @@
 package com.example.enarvaez.basedatos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -140,6 +141,9 @@ public class RegistroUsuario extends AppCompatActivity implements  View.OnClickL
                 String Rcontraseña=dEditTextDatorcontraUsuario.getText().toString();
 
                 CargarDatos(nombre,correo,barrio,municipio,departamento,contraseña,Rcontraseña);
+
+                Intent irlogin= new Intent(RegistroUsuario.this,IniciarSesion.class);
+                startActivity(irlogin);
 
 
         }
