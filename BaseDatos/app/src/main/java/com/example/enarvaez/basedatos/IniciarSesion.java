@@ -141,13 +141,13 @@ public class IniciarSesion extends AppCompatActivity implements View.OnClickList
                         } else {
 
                             //validamos si el usuario ya existe en la base de datos
-                            if(task.getException() instanceof FirebaseAuthException)
+                            /*if(task.getException() instanceof FirebaseAuthException)
                             {
 
                                 Toast.makeText(IniciarSesion.this,"Usuario ya existe",Toast.LENGTH_LONG).show();
                                 Intent welcome=new Intent(getApplication(), RegistroUsuario.class);
                                 startActivity(welcome);
-                            }
+                            }*/
                             Toast.makeText(IniciarSesion.this, "No se ha podido ingresar el usuario", Toast.LENGTH_LONG).show();
                             Intent welcome=new Intent(IniciarSesion.this, RegistroUsuario.class);
                             startActivity(welcome);
