@@ -32,7 +32,7 @@ public class IniciarSesion extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
+        setContentView(R.layout.activity_iniciar_sesion);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -129,7 +129,7 @@ public class IniciarSesion extends AppCompatActivity implements View.OnClickList
                             Toast.makeText(IniciarSesion.this, "Bienvenido :"+ TextEmail.getText(), Toast.LENGTH_LONG).show();
 
                             Intent welcome=new Intent(getApplication(),ModulosGSM.class);
-                            welcome.putExtra(BienvenidoActivity.registro_user,email);
+                            //welcome.putExtra(BienvenidoActivity.registro_user,email);
                             startActivity(welcome);
 
                         } else {

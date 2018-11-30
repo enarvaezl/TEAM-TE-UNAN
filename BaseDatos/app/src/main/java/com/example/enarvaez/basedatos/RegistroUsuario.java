@@ -1,168 +1,149 @@
 package com.example.enarvaez.basedatos;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ImageButton;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class RegistroUsuario extends AppCompatActivity {
+import java.util.HashMap;
+import java.util.Map;
 
+public class RegistroUsuario extends AppCompatActivity implements  View.OnClickListener {
 
-    public class activity_registro extends AppCompatActivity implements View.OnClickListener {
-
-        private EditText TextEmail;
-        private EditText TextPassword;
-        private Button btnRegistrar, btnlog;
-        private android.app.ProgressDialog ProgressDialog;
-
-
-        private FirebaseAuth firebaseAuth;
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_registro);
-
-            firebaseAuth = FirebaseAuth.getInstance();
-
-            TextEmail = (EditText) findViewById(R.id.txtcorreo);
-            TextPassword = (EditText) findViewById(R.id.txtcorreo);
-            btnRegistrar = (Button) findViewById(R.id.btnRegistro);
-            btnlog = (Button) findViewById(R.id.btnlogin);
-
-            ProgressDialog = new ProgressDialog(this);
-
-            btnRegistrar.setOnClickListener(this);
-
-        }
-
-        private void registrar_usuario() {
-
-            //obtenemos el email de la caja de texto y la contraseña de las cajas de texto
-
-            String email = TextEmail.getText().toString().trim();
-            String pass = TextPassword.getText().toString().trim();
-
-            //Verifico si las cajas de texto estan vacias
-            if (TextUtils.isEmpty(email)) {
-
-                Toast.makeText(this, "se debe ingresar un email valido", Toast.LENGTH_LONG).show();
-                return;
-            }
-            if (TextUtils.isEmpty(pass)) {
-
-                Toast.makeText(this, "Se debe ingresar una contraseña", Toast.LENGTH_LONG).show();
-                return;
-            }
+    DatabaseReference datos;
+    ImageButton dButtonSubirDatosFirebase;
+    EditText dEditTextDatoNombreUsuario,
+            dEditTextDatoCorreoUsuario,
+            dEditTextDatobarrioUsuario,
+            dEditTextDatoMunicipioUsuario,
+            dEditTextDatoDepaUsuario,
+            dEditTextDatocontraUsuario,
+            dEditTextDatorcontraUsuario;
 
 
-            ProgressDialog.setMessage("Registrando Usuario");
-            ProgressDialog.show();
 
-            //creando un nuevo usuario
-            firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(Task<AuthResult> task) {
-                    //Verificacion del proceso de creacion de usuario
-                    if (task.isSuccessful()) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-                        Toast.makeText(activity_registro.this, "se ha registrado el Email :" + TextEmail.getText(), Toast.LENGTH_LONG).show();
-                    } else {
+        setContentView(R.layout.activity_registro_usuario);
 
-                        //validamos si el usuario ya existe en la base de datos
-                        if (task.getException() instanceof FirebaseAuthException) {
-
-                            Toast.makeText(activity_registro.this, "Usuario ya existe", Toast.LENGTH_LONG).show();
-                        }
-                        Toast.makeText(activity_registro.this, "No se ha podido ingresar el usuario", Toast.LENGTH_LONG).show();
-
-                    }
-
-                    ProgressDialog.dismiss();
-                }
-            });
-        }
-
-        private void loguear_usuario() {
-            //obtenemos el email de la caja de texto y la contraseña de las cajas de texto
-
-            final String email = TextEmail.getText().toString().trim();
-            String pass = TextPassword.getText().toString().trim();
-
-            //Verifico si las cajas de texto estan vacias
-            if (TextUtils.isEmpty(email)) {
-
-                Toast.makeText(this, "se debe ingresar un email valido", Toast.LENGTH_LONG).show();
-                return;
-            }
-            if (TextUtils.isEmpty(pass)) {
-
-                Toast.makeText(this, "Se debe ingresar una contraseña", Toast.LENGTH_LONG).show();
-                return;
-            }
+        dButtonSubirDatosFirebase = findViewById(R.id.btnSubirDatos);
+        dButtonSubirDatosFirebase.setOnClickListener(this);
+        dEditTextDatoNombreUsuario = findViewById(R.id.etNombre);
+        dEditTextDatoCorreoUsuario=findViewById(R.id.etCorreo);
+        dEditTextDatobarrioUsuario=findViewById(R.id.etBarrio);
+        dEditTextDatoMunicipioUsuario = findViewById(R.id.etMunicipio);
+        dEditTextDatoDepaUsuario=findViewById(R.id.etDepartamento);
+        dEditTextDatocontraUsuario =findViewById(R.id.etcontras);
+        dEditTextDatorcontraUsuario=findViewById(R.id.etrep_contra);
 
 
-            ProgressDialog.setMessage("Realizando Consulta");
-            ProgressDialog.show();
+        datos = FirebaseDatabase.getInstance().getReference();
+        solictarDatosFirebase();
+    }
+    //Metodo que solicta los datos
+    private void solictarDatosFirebase()
+    {
+        datos.child("Usuario").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange( DataSnapshot dataSnapshot) {
 
-            //Login de  usuario
-            firebaseAuth.signInWithEmailAndPassword(email, pass)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+
+                    datos.child("Usuario").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
                         @Override
-                        public void onComplete(Task<AuthResult> task) {
-                            //Verificacion del proceso de creacion de usuario
-                            if (task.isSuccessful()) {
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            Clases user = snapshot.getValue(com.example.enarvaez.basedatos.Clases.class);
+                            String nombre = user.getNombre();
+                            String correo = user.getCorreo();
+                            String barrio=user.getBarrio();
+                            String municipio=user.getMunicipio();
+                            String departamento=user.getDepartamento();
+                            String contrasena=user.getContrasena();
+                            String Rcontrasena=user.getRcontrasena();
 
-                                Toast.makeText(activity_registro.this, "Bienvenido :" + TextEmail.getText(), Toast.LENGTH_LONG).show();
 
-                                Intent welcome = new Intent(getApplication(), BienvenidoActivity.class);
-                                welcome.putExtra(BienvenidoActivity.registro_user, email);
-                                startActivity(welcome);
+                            //muestra datos por consola
 
-                            } else {
+                            Log.e("nombre de Usuario:" ," "+ nombre);
+                            Log.e("correo :"  ," "+ correo);
+                            Log.e("barrio :" ," "+ barrio);
+                            Log.e("municipio :"  ," "+ municipio);
+                            Log.e("departamento :"  ," "+ departamento);
+                            Log.e("contraseña :"  ," "+ contrasena);
+                            Log.e("Rcontraseña :"  ," "+ Rcontrasena);
 
-                                //validamos si el usuario ya exste en la base de datos
-                                if (task.getException() instanceof FirebaseAuthException) {
+                            Log.e("Datos: ", "" + snapshot.getValue());
 
-                                    Toast.makeText(activity_registro.this, "Usuario ya existe", Toast.LENGTH_LONG).show();
-                                }
-                                Toast.makeText(activity_registro.this, "No se ha podido ingresar el usuario", Toast.LENGTH_LONG).show();
 
-                            }
+                        }
 
-                            ProgressDialog.dismiss();
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
                         }
                     });
-        }
 
 
-        @Override
-        public void onClick(View v) {
-
-            switch (v.getId()) {
-                case R.id.btnRegistro:
-
-                    registrar_usuario();
-                    break;
-                case R.id.btnlogin:
-                    loguear_usuario();
-                    break;
-
+                }
             }
 
-        }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+
+    }
+
+
+    //metodo que carga los datos
+
+    private void CargarDatos (String nombre, String correo, String barrio,String municipio,String departamento, String contra, String rcontra){
+
+        Map<String,Object> datosUsuarios= new HashMap<>();
+        datosUsuarios.put("nombre",nombre);
+        datosUsuarios.put("correo", correo);
+        datosUsuarios.put("barrio",barrio);
+        datosUsuarios.put("municipio",municipio);
+        datosUsuarios.put("departamento",departamento);
+        datosUsuarios.put("contraseña",contra);
+        datosUsuarios.put("Repetir contraseña",rcontra);
+        datos.child("Usuario").push().setValue(datosUsuarios);
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.btnSubirDatos:
+
+
+                String nombre=dEditTextDatoNombreUsuario.getText().toString();
+                String correo=dEditTextDatoCorreoUsuario.getText().toString();
+                String barrio= dEditTextDatobarrioUsuario.getText().toString();
+                String municipio= dEditTextDatoMunicipioUsuario .getText().toString();
+                String departamento= dEditTextDatoDepaUsuario.getText().toString();
+                String contraseña= dEditTextDatorcontraUsuario.getText().toString();
+                String Rcontraseña=dEditTextDatorcontraUsuario.getText().toString();
+
+                CargarDatos(nombre,correo,barrio,municipio,departamento,contraseña,Rcontraseña);
+
+
+        }
 
     }
 }
+

@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="0.298" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/etNombre"
         android:layout_width="140dp"
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="0.452" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/etBarrio"
         android:layout_width="144dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
@@ -109,7 +109,7 @@
         app:layout_constraintVertical_bias="0.59" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/etMunicipio"
         android:layout_width="144dp"
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
@@ -143,7 +143,7 @@
         app:layout_constraintVertical_bias="0.72" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/etDepartamento"
         android:layout_width="158dp"
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
@@ -177,7 +177,7 @@
         app:layout_constraintVertical_bias="0.281" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/etCorreo"
         android:layout_width="134dp"
         android:layout_height="41dp"
         android:layout_marginStart="8dp"
@@ -211,7 +211,7 @@
         app:layout_constraintVertical_bias="0.452" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/etcontras"
         android:layout_width="133dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
@@ -245,7 +245,7 @@
         app:layout_constraintVertical_bias="0.616" />
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/etrep_contra"
         android:layout_width="136dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -262,7 +262,7 @@
         app:layout_constraintVertical_bias="0.616" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnSubirDatos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
