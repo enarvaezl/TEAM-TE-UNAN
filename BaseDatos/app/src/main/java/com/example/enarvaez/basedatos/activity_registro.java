@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,7 +22,7 @@ public  class activity_registro extends AppCompatActivity implements View.OnClic
 
     private EditText TextEmail;
     private EditText TextPassword;
-    private Button btnRegistrar, btnlog;
+    private ImageButton btnRegistrar, btnlogin;
     private ProgressDialog ProgressDialog;
 
 
@@ -35,9 +36,9 @@ public  class activity_registro extends AppCompatActivity implements View.OnClic
         firebaseAuth = FirebaseAuth.getInstance();
 
         TextEmail = (EditText) findViewById(R.id.txtcorreo);
-        TextPassword = (EditText) findViewById(R.id.txtcorreo);
-        btnRegistrar = (Button) findViewById(R.id.btnRegistro);
-        btnlog = (Button) findViewById(R.id.btnlogin);
+        TextPassword = (EditText) findViewById(R.id.txtpass);
+        btnRegistrar = (ImageButton) findViewById(R.id.ImgButtonIniciar);
+        btnlogin = (ImageButton) findViewById(R.id.ImgButtonRegistrar);
 
         ProgressDialog = new ProgressDialog(this);
 
