@@ -21,10 +21,11 @@ import com.google.firebase.auth.FirebaseAuthException;
 
 public class IniciarSesion extends AppCompatActivity implements View.OnClickListener{
 
-    private EditText TextEmail;
-    private EditText TextPassword;
-    private ImageButton btnRegistrar, btnlogin;
-    private android.app.ProgressDialog ProgressDialog;
+    public EditText TextEmail;
+    public  EditText TextPassword;
+    public ImageButton btnRegistrar;
+    public ImageButton btnlog;
+    public android.app.ProgressDialog ProgressDialog;
 
 
     private FirebaseAuth firebaseAuth;
@@ -39,11 +40,12 @@ public class IniciarSesion extends AppCompatActivity implements View.OnClickList
         TextEmail = (EditText) findViewById(R.id.txtcorreo);
         TextPassword = (EditText) findViewById(R.id.txtpass);
         btnRegistrar = (ImageButton) findViewById(R.id.ImgButtonIniciar);
-        btnlogin = (ImageButton) findViewById(R.id.ImgButtonRegistrar);
+        btnlog = (ImageButton) findViewById(R.id.ImgButtonRegistrar);
 
         ProgressDialog = new ProgressDialog(this);
 
         btnRegistrar.setOnClickListener(this);
+        btnlog.setOnClickListener(this);
 
     }
 
@@ -86,7 +88,10 @@ public class IniciarSesion extends AppCompatActivity implements View.OnClickList
                     if(task.getException() instanceof FirebaseAuthException)
                     {
 
-                        Toast.makeText(IniciarSesion.this,"Usuario ya existe",Toast.LENGTH_LONG).show();
+                        Toast.makeText(IniciarSesion.this,"Usuario ya existe, porfavor Registrarse",Toast.LENGTH_LONG).show();
+                        Intent welcome=new Intent(getApplication(), RegistroUsuario.class);
+                        startActivity(welcome);
+
                     }
                     Toast.makeText( IniciarSesion.this, "No se ha podido ingresar el usuario", Toast.LENGTH_LONG).show();
 
