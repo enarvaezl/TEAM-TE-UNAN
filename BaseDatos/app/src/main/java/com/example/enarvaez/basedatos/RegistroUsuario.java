@@ -63,7 +63,7 @@ import java.util.Map;
                 @Override
                 public void onDataChange( DataSnapshot dataSnapshot) {
 
-                    for (final DataSnapshot snapshot : dataSnapshot.getChildren())
+                    for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         datos.child("Usuarios").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -97,6 +97,7 @@ import java.util.Map;
                                 Toast.makeText(RegistroUsuario.this, databaseError.getMessage(), Toast.LENGTH_LONG).show();
                             }
                         });
+                    }
                 }
 
                 @Override
@@ -141,10 +142,12 @@ import java.util.Map;
                     String rcontrasena=dEditTextDatorcontraUsuario.getText().toString();
 
                     CargarDatos(nombre,correo,barrio,municipio,departamento,contrasena,rcontrasena);
-
+                    limpiar();
                    Toast.makeText(RegistroUsuario.this," Datos Guardados Correctamente",Toast.LENGTH_LONG).show();
+                   Intent irlogin= new Intent(RegistroUsuario.this,IniciarSesion.class);
+                    startActivity(irlogin);
 
-
+                    break;
 
 
 
@@ -161,8 +164,7 @@ import java.util.Map;
             dEditTextDatocontraUsuario.setText( "");
             dEditTextDatocontraUsuario.setText(" ");
 
-            Intent irlogin= new Intent(RegistroUsuario.this,IniciarSesion.class);
-            startActivity(irlogin);
+
 
         }
 
