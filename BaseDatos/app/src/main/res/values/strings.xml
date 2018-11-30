@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name" translatable="false">BaseDatos</string>
-    <string name="app_seccion" translatable="false">seccion</string>
-    <string name="app_asign" translatable="false">Asignatura</string>
-    <string name="app_tem" translatable="false">Tema</string>
-
+    <string name="app_nombre" translatable="false">nombre</string>
+    <string name="app_apellido" translatable="false">apellido</string>
+    <string name="app_direccion" translatable="false">direccion</string>
+    <string name="app_telefono" translatable="false" >telefono</string>
     <string name="app_reg" translatable="false">Registrar</string>
+    <string name="app_datos" translatable="false">Subir</string>
 
     <string-array name="asigna">
         <item>Seleccione</item>

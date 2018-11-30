@@ -2,6 +2,7 @@ package com.example.enarvaez.basedatos;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +16,7 @@ import  com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public  class MainActivity extends AppCompatActivity implements View.OnClickListener {
     DatabaseReference datos;
     Button dButtonSubirDatosFirebase;
     EditText dEditTextDatoNombreUsuario,dEditTextDatoApellidoUsuario,
@@ -57,13 +58,13 @@ public abstract class MainActivity extends AppCompatActivity implements View.OnC
                                     int telefono = user.getTelefono();
                                     String direccion = user.getDireccion();
 
-                                    /*Log.e("nombre de Usuario:" + "," + nombre);
-                                    Log.e("Apellido :" + "," + apellido);
-                                    Log.e("telefono :" + "," + telefono);
-                                    Log.e("direccion :" + "," + direccion);
+                                    Log.e("nombre de Usuario:" ," "+ nombre);
+                                    Log.e("Apellido :"  ," "+ apellido);
+                                    Log.e("telefono :" ," "+ telefono);
+                                    Log.e("direccion :"  ," "+ direccion);
                                     Log.e("Datos: ", "" + snapshot.getValue());
 
-                                    */
+
                                 }
 
                                 @Override
@@ -85,7 +86,7 @@ public abstract class MainActivity extends AppCompatActivity implements View.OnC
             }
 
 
-            //metodo aue carga los datos
+            //metodo que carga los datos
 
             private void CargarDatos (String nombre, String apellido, int telefono, String direccion){
 
