@@ -58,7 +58,7 @@ import java.util.Map;
         //Metodo que solicta los datos
         private void solictarDatosFirebase()
         {
-            datos.child("Personas").addValueEventListener(new ValueEventListener() {
+            datos.child("Usuarios").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange( DataSnapshot dataSnapshot) {
 
@@ -124,7 +124,7 @@ import java.util.Map;
             datosUsuarios.put("departamento",departamento);
             datosUsuarios.put("contraseña",contra);
             datosUsuarios.put("Repetir contraseña",rcontra);
-            datos.child("Personas").push().setValue(datosUsuarios);
+            datos.child("Usuarios").push().setValue(datosUsuarios);
 
         }
 
@@ -141,12 +141,12 @@ import java.util.Map;
                     String barrio= dEditTextDatobarrioUsuario.getText().toString();
                     String municipio= dEditTextDatoMunicipioUsuario .getText().toString();
                     String departamento= dEditTextDatoDepaUsuario.getText().toString();
-                    String contraseña= dEditTextDatorcontraUsuario.getText().toString();
+                    String contraseña= dEditTextDatocontraUsuario.getText().toString();
                     String Rcontraseña=dEditTextDatorcontraUsuario.getText().toString();
 
                     CargarDatos(nombre,correo,barrio,municipio,departamento,contraseña,Rcontraseña);
+
                     Toast.makeText(RegistroUsuario.this," Datos Guardados Correctamente",Toast.LENGTH_LONG).show();
-                    limpiar();
 
 
                     break;
@@ -162,7 +162,8 @@ import java.util.Map;
             dEditTextDatobarrioUsuario.setText(" ");
             dEditTextDatoMunicipioUsuario.setText(" ");
             dEditTextDatoDepaUsuario.setText(" ");
-            dEditTextDatorcontraUsuario.setText(" ");
+            dEditTextDatocontraUsuario.setText( "");
+            dEditTextDatocontraUsuario.setText(" ");
 
             Intent irlogin= new Intent(RegistroUsuario.this,IniciarSesion.class);
             startActivity(irlogin);
