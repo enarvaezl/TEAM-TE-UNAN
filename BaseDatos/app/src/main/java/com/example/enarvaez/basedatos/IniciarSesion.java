@@ -2,13 +2,13 @@ package com.example.enarvaez.basedatos;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
+
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.WindowManager;
+
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -128,7 +128,7 @@ public class IniciarSesion extends AppCompatActivity implements View.OnClickList
 
                             Toast.makeText(IniciarSesion.this, "Bienvenido :"+ TextEmail.getText(), Toast.LENGTH_LONG).show();
 
-                            Intent welcome=new Intent(getApplication(),ModulosGSM.class);
+                            Intent welcome=new Intent(getApplication(),  ModulosGSM.class);
                             //welcome.putExtra(BienvenidoActivity.registro_user,email);
                             startActivity(welcome);
 
