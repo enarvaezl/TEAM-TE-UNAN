@@ -24,63 +24,78 @@ public class MainActivity extends AppCompatActivity {
         mEditTextDatoTelefonoUsuario, mEditTextDatoDireccionUsuario;
 
 
-   DatabaseReference Clases;
+       DatabaseReference Clases;
 
-    EditText txttema;
-    Spinner spinarea, spinseccion;
-    Button btnregistrar;
+        EditText txttema;
+        Spinner spinarea, spinseccion;
+        Button btnregistrar;
 
-@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
-
-        Clases =FirebaseDatabase.getInstance().getReference("Clases");
-
-    txttema = (EditText)findViewById(R.id.txttema);
-    spinarea= (Spinner) findViewById(R.id.spinarea);
-    spinseccion= (Spinner) findViewById(R.id.spinseccion);
-    btnregistrar= (Button) findViewById(R.id.btnregistrar);
-
-    mButtonSubirDatosFirebase = findViewById(R.id.btnSubirDatos);
-    mButtonSubirDatosFirebase.setOnClickListener(this);
-    mEditTextDatoNombreUsuario = findViewById(R.id.etNombre);
-    mEditTextDatoApellidoUsuario = findViewById(R.id.etApellido);
-    mEditTextDatoTelefonoUsuario = findViewById(R.id.etTelefono);
-    mEditTextDatoDireccionUsuario = findViewById(R.id.etDireccion);
+                setContentView(R.layout.activity_main);
 
 
 
-datos= FirebaseDatabase.getInstance().getReference();
+            txttema = (EditText)findViewById(R.id.txttema);
+            spinarea= (Spinner) findViewById(R.id.spinarea);
+            spinseccion= (Spinner) findViewById(R.id.spinseccion);
+            btnregistrar= (Button) findViewById(R.id.btnregistrar);
 
-//
+            mButtonSubirDatosFirebase = findViewById(R.id.btnSubirDatos);
+            mButtonSubirDatosFirebase.setOnClickListener(this);
+            mEditTextDatoNombreUsuario = findViewById(R.id.etNombre);
+            mEditTextDatoApellidoUsuario = findViewById(R.id.etApellido);
+            mEditTextDatoTelefonoUsuario = findViewById(R.id.etTelefono);
+            mEditTextDatoDireccionUsuario = findViewById(R.id.etDireccion);
+
+            datos= FirebaseDatabase.getInstance().getReference();
 
 
-private void solictarDatosFirebase()
-            
+
+        //
 
 
-    {
-      datos.child("Usuario").addValueEventListener(new ValueEventListener() {
-          @Override
-          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+           private void solictarDatosFirebase()
 
-          }
+        {
+          datos.child("Usuario").addValueEventListener(new ValueEventListener() {
+              @Override
+              public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-          @Override
-          public void onCancelled(@NonNull DatabaseError databaseError) {
+                  for (final DataSnapshot snapshot: dataSnapshot.getChildren()) {
 
-          }
-      });
+
+                      datos.child("Usaurio").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
+                          @Override
+                          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                              
+                          }
+
+                          @Override
+                          public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                          }
+                      })
+
+
+                  }
+              }
+
+              @Override
+              public void onCancelled(@NonNull DatabaseError databaseError) {
+
+              }
+          });
+
+        }
+
+
+
+
+
+
+
 
     }
-
-
-
-
-
-
-
-
-}
