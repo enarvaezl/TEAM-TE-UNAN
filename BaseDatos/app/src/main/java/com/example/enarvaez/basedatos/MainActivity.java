@@ -2,6 +2,7 @@ package com.example.enarvaez.basedatos;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import com.google.firebase.database.DatabaseError;
@@ -10,10 +11,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DataSnapshot;
 import  com.google.firebase.database.ValueEventListener;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity  {
+public abstract class MainActivity extends AppCompatActivity implements View.OnClickListener {
     DatabaseReference datos;
     Button mButtonSubirDatosFirebase;
     EditText mEditTextDatoNombreUsuario,mEditTextDatoApellidoUsuario,
@@ -55,13 +57,13 @@ public class MainActivity extends AppCompatActivity  {
                                     int telefono = user.getTelefono();
                                     String direccion = user.getDireccion();
 
-                                    Log.e("nombre de Usuario:" + "," + nombre);
+                                    /*Log.e("nombre de Usuario:" + "," + nombre);
                                     Log.e("Apellido :" + "," + apellido);
                                     Log.e("telefono :" + "," + telefono);
                                     Log.e("direccion :" + "," + direccion);
                                     Log.e("Datos: ", "" + snapshot.getValue());
 
-
+                                    */
                                 }
 
                                 @Override
@@ -97,12 +99,13 @@ public class MainActivity extends AppCompatActivity  {
             }
 
 
+    @Override
+    public void onClick(View v) {
 
+            switch (v.getId())
 
-
-
-
-        }
+    }
+}
 
 
 
