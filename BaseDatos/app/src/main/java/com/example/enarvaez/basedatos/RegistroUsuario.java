@@ -21,6 +21,7 @@ import java.util.Map;
 
         DatabaseReference datos;
         ImageButton dButtonSubirDatosFirebase;
+
         EditText dEditTextDatoNombreUsuario,
                 dEditTextDatoCorreoUsuario,
                 dEditTextDatobarrioUsuario,
@@ -39,6 +40,8 @@ import java.util.Map;
 
             dButtonSubirDatosFirebase = findViewById(R.id.btnSubirDatos);
             dButtonSubirDatosFirebase.setOnClickListener(this);
+
+
             dEditTextDatoNombreUsuario = findViewById(R.id.etNombre);
             dEditTextDatoCorreoUsuario=findViewById(R.id.etCorreo);
             dEditTextDatobarrioUsuario=findViewById(R.id.etBarrio);
