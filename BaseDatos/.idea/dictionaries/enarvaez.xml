@@ -6,6 +6,7 @@
       <w>asigna</w>
       <w>asignatura</w>
       <w>btnregistrar</w>
+      <w>cargar</w>
       <w>clase</w>
       <w>clases</w>
       <w>clasid</w>
@@ -25,6 +26,7 @@
       <w>seccion</w>
       <w>secciones</w>
       <w>seleccione</w>
+      <w>solictar</w>
       <w>spinarea</w>
       <w>spinseccion</w>
       <w>subir</w>
@@ -32,6 +34,7 @@
       <w>tema</w>
       <w>txttema</w>
       <w>usuario</w>
+      <w>usuarios</w>
     </words>
   </dictionary>
 </component>

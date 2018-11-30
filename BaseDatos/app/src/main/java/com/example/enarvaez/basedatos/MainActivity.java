@@ -17,9 +17,9 @@ import java.util.Map;
 
 public abstract class MainActivity extends AppCompatActivity implements View.OnClickListener {
     DatabaseReference datos;
-    Button mButtonSubirDatosFirebase;
-    EditText mEditTextDatoNombreUsuario,mEditTextDatoApellidoUsuario,
-        mEditTextDatoTelefonoUsuario, mEditTextDatoDireccionUsuario;
+    Button dButtonSubirDatosFirebase;
+    EditText dEditTextDatoNombreUsuario,dEditTextDatoApellidoUsuario,
+        dEditTextDatoTelefonoUsuario, dEditTextDatoDireccionUsuario;
 
 
         @Override
@@ -28,12 +28,12 @@ public abstract class MainActivity extends AppCompatActivity implements View.OnC
 
             setContentView(R.layout.activity_main);
 
-            mButtonSubirDatosFirebase = findViewById(R.id.btnSubirDatos);
-            mButtonSubirDatosFirebase.setOnClickListener(this);
-            mEditTextDatoNombreUsuario = findViewById(R.id.etNombre);
-            mEditTextDatoApellidoUsuario = findViewById(R.id.etApellido);
-            mEditTextDatoTelefonoUsuario = findViewById(R.id.etTelefono);
-            mEditTextDatoDireccionUsuario = findViewById(R.id.etDireccion);
+            dButtonSubirDatosFirebase = findViewById(R.id.btnSubirDatos);
+            dButtonSubirDatosFirebase.setOnClickListener(this);
+            dEditTextDatoNombreUsuario = findViewById(R.id.etNombre);
+            dEditTextDatoApellidoUsuario = findViewById(R.id.etApellido);
+            dEditTextDatoTelefonoUsuario = findViewById(R.id.etTelefono);
+            dEditTextDatoDireccionUsuario = findViewById(R.id.etDireccion);
 
             datos = FirebaseDatabase.getInstance().getReference();
             solictarDatosFirebase();
@@ -102,7 +102,17 @@ public abstract class MainActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View v) {
 
-            switch (v.getId())
+            switch (v.getId()){
+                case R.id.btnSubirDatos:
+
+
+                    String nombre=dEditTextDatoNombreUsuario.getText().toString();
+                    String apellido=dEditTextDatoApellidoUsuario.getText().toString();
+                    int telefono=Integer.parseInt(dEditTextDatoTelefonoUsuario.getText().toString());
+                    String direccion=dEditTextDatoDireccionUsuario.getText().toString();
+                    CargarDatos(nombre,apellido,telefono,direccion);
+
+            }
 
     }
 }
