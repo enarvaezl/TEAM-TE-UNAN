@@ -1,4 +1,5 @@
 package com.example.enarvaez.basedatos;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,7 +45,7 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
             {
                 datos.child("Usuario").addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    public void onDataChange( DataSnapshot dataSnapshot) {
 
                         for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
@@ -57,6 +58,8 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
                                     String apellido = user.getApellido();
                                     int telefono = user.getTelefono();
                                     String direccion = user.getDireccion();
+
+                                    //muestra datos por consola
 
                                     Log.e("nombre de Usuario:" ," "+ nombre);
                                     Log.e("Apellido :"  ," "+ apellido);
@@ -112,6 +115,8 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
                     int telefono=Integer.parseInt(dEditTextDatoTelefonoUsuario.getText().toString());
                     String direccion=dEditTextDatoDireccionUsuario.getText().toString();
                     CargarDatos(nombre,apellido,telefono,direccion);
+                    Intent otra=new Intent (MainActivity.this,activity_registro.class);
+                    startActivity(otra);
 
             }
 

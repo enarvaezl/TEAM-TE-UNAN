@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,76 +14,84 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 
-public class activity_registro extends AppCompatActivity {
+public  class activity_registro extends AppCompatActivity implements View.OnClickListener {
 
-        private EditText TextEmail;
+    private EditText TextEmail;
     private EditText TextPassword;
     private Button btnRegistrar;
     private ProgressDialog ProgressDialog;
 
 
     private FirebaseAuth firebaseAuth;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        firebaseAuth=FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        TextEmail=(EditText) findViewById(R.id.txtcorreo);
-        TextPassword= (EditText) findViewById(R.id.txtcorreo);
-        btnRegistrar=(Button)findViewById(R.id.btnRegistro);
-        ProgressDialog= new ProgressDialog(this);
+        TextEmail = (EditText) findViewById(R.id.txtcorreo);
+        TextPassword = (EditText) findViewById(R.id.txtcorreo);
+        btnRegistrar = (Button) findViewById(R.id.btnRegistro);
+        ProgressDialog = new ProgressDialog(this);
 
         btnRegistrar.setOnClickListener(this);
 
     }
 
-    private void registrar_usuario()
-    {
+    private void registrar_usuario() {
 
-        //obtenemos el email de la caja de texto
-        String email=TextEmail.getText().toString().trim();
-        String pass=TextPassword.getText().toString().trim();
+        //obtenemos el email de la caja de texto y la contraseña de las cajas de texto
 
-        if(TextUtils.isEmpty(email)){
+        String email = TextEmail.getText().toString().trim();
+        String pass = TextPassword.getText().toString().trim();
 
-            Toast.makeText(this,"se debe ingresar un email valido",Toast.LENGTH_LONG).show();
+        //Verifico si las cajas de texto estan vacias
+        if (TextUtils.isEmpty(email)) {
+
+            Toast.makeText(this, "se debe ingresar un email valido", Toast.LENGTH_LONG).show();
             return;
         }
-        if(TextUtils.isEmpty(pass))
-        {
+        if (TextUtils.isEmpty(pass)) {
 
-            Toast.makeText(this,"Se debe ingresar una contraseña",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Se debe ingresar una contraseña", Toast.LENGTH_LONG).show();
             return;
         }
-
 
 
         ProgressDialog.setMessage("Registrando Usuario");
         ProgressDialog.show();
 
-
-
-        firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        //creando un nuevo usuario
+        firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onComplete(Task<AuthResult> task) {
+            //Verificacion del proceso de creacion de usuario
+                if (task.isSuccessful()) {
 
-                if(task.isSuccessful()){
+                    Toast.makeText(activity_registro.this, "se ha registrado el Email :"+ TextEmail.getText(), Toast.LENGTH_LONG).show();
+                } else {
 
-                    Toast.makeText(activity_registro.this, "se ha registrado el Email",Toast.LENGTH_LONG).show();
-                }else
-                {
+                    //validamos si el usuario ya exste en la base de datos
+                    if(task.getException() instanceof FirebaseAuthException)
+                    {
 
-                    
+                       Toast.makeText(activity_registro.this,"Usuario ya existe",Toast.LENGTH_LONG).show();
+                    }
+                    Toast.makeText(activity_registro.this, "No se ha podido ingresar el usuario", Toast.LENGTH_LONG).show();
+
                 }
 
-
+                ProgressDialog.dismiss();
             }
         });
     }
 
-
+    @Override
+    public void onClick(View v) {
+       registrar_usuario();
+    }
 }

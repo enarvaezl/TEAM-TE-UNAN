@@ -13,6 +13,7 @@
       <w>clasid</w>
       <w>contraseña</w>
       <w>correo</w>
+      <w>creando</w>
       <w>dato</w>
       <w>datos</w>
       <w>debe</w>
@@ -21,6 +22,7 @@
       <w>electronico</w>
       <w>enarvaez</w>
       <w>enviar</w>
+      <w>existe</w>
       <w>firebase</w>
       <w>ingresar</w>
       <w>introducir</w>
@@ -28,7 +30,11 @@
       <w>lecciones</w>
       <w>lenguajes</w>
       <w>nombre</w>
+      <w>obtenemos</w>
+      <w>otra</w>
+      <w>podido</w>
       <w>registrado</w>
+      <w>registrando</w>
       <w>registro</w>
       <w>seccion</w>
       <w>secciones</w>
@@ -42,7 +48,10 @@
       <w>txttema</w>
       <w>usuario</w>
       <w>usuarios</w>
+      <w>validamos</w>
       <w>valido</w>
+      <w>verificacion</w>
+      <w>verifico</w>
     </words>
   </dictionary>
 </component>
